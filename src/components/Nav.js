@@ -28,8 +28,8 @@ const Nav = props =>{
                 <Link style={navStyle} to='/cart'>
                 <li>
                     <img className='cart_icon' src={require('../icon/shopping-bag.png')} alt="cart"></img>
-                {props.length > 0 && 
-                    <span className='cartText'>{props.length}</span>
+                {props.quantity > 0 && 
+                    <span className='cartText'>{props.quantity}</span>
                 }
                 </li>
                 </Link>

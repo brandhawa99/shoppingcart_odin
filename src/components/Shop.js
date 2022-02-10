@@ -7,7 +7,6 @@ import uniqid from 'uniqid'
 const Shop = props  =>{
      
     const [items, setItems] = useState([]); 
-    const [cart, setCart] = useState([]);
 
     const getData = async() =>{
         const data = await fetch("https://fakestoreapi.com/products")

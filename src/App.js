@@ -10,105 +10,126 @@ import {BrowserRouter as Router,Route, Routes} from 'react-router-dom'
 
 
 function App() {
+  /**
+   *  cart contains all the products going to be bought by the customer 
+   */
   const [cart, setCart] = useState([]);
-  const [quantity,setQuant] = useState(0);
-  const [total,setTotal] = useState(0); 
+  const [quantity, setQuantity] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0); 
 
   const getItem = async (id) =>{
     const data = await fetch(`https://fakestoreapi.com/products/${id}`)
-    const item = await data.json();
-    item.quantity = 1; 
-    setCart([...cart,item])
+    const item=  await data.json();
+    console.log(item);
+    return item; 
+    
   }
 
-  const productExists = (id) =>{
-    let items = cart;
+  /**
+   * Checks if the product is already in the cart 
+   *  if product is in the cart it increments its quantity by one
+   *  if product is not in the cart it does a call to fetch the item data and add a quantity attribute
+   * Then update the cart 
+   * @param {int} id 
+   */
+  const productExists = async(id,amount) =>{
+    let items = [...cart];
     let flag = false ; 
 
     items.forEach((item)=>{
       if(item.id === id){
-        item.quantity = item.quantity +1
+        item.quantity = item.quantity +amount
         flag = true; 
       }
     })
     if(flag === false){
-      getItem(id)
-      return;
+      let newAdd = await getItem(id)
+      newAdd.quantity = amount; 
+      items = [...items, newAdd];
     }
     setCart(items)
   }
 
 
   const changeCart = (event) =>{
-    event.preventDefault();
     const id = parseInt(event.target.name)
-    productExists(id);
-    cartQuantity();
+    productExists(id,1);
   }
 
+  const incrementItem  = (e) =>{
+    let id = parseInt(e.target.name)
+    let items = [...cart]
 
-  const incrementValue = (e) =>{
-    e.preventDefault(); 
-    const id = parseInt(e.target.name)
-
-    let update = cart
-    update.forEach(item =>{
+    items.forEach((item) =>{
       if(item.id === id){
         item.quantity = item.quantity+1
+        return
       }
+
     })
-    
-    setCart(update);
+    setCart(items);
+
+
   }
 
+  const addAmount = (event) =>{
+    event.preventDefault();
 
-  const decrementValue = (e) =>{
-    e.preventDefault(); 
+    const id = parseInt(event.target[0].name)
+    const quant = parseInt(event.target[0].value)
+    productExists(id,quant);
 
-    let update = cart
-    const id = parseInt(e.target.name)
-    update.forEach(item =>{
+  }
+
+  const decrementItem  = (e) =>{
+    let id = parseInt(e.target.name)
+    let items = [...cart]
+
+    items.forEach((item) =>{
       if(item.id === id){
-        item.quantity = item.quantity-1
+        if(item.quantity === 0){
+          return;
+        }
+        item.quantity = item.quantity -1
+        return
       }
+
     })
-    setCart(update);
+    setCart(items);
+
 
   }
 
 
-  const cartQuantity = () =>{
-    const total = cart.reduce((count, item)=>{
-      return count + (item.quantity)
+
+
+
+  useEffect(()=>{
+  
+    let total = cart.reduce((total,item)=>{
+      return total + item.quantity;
     },0)
-    setQuant(total)
-    cartTotal();
-  }
-  const cartTotal = () =>{
-    const total = cart.reduce((count, item)=>{
-      return count + (item.quantity*item.price);
+    setQuantity(total);
+
+    let price = cart.reduce((total,item)=>{
+      return total + (item.quantity *item.price)
     },0)
-    setTotal(total);
-  }
-  useEffect(() =>{
+    setTotalPrice(price);
 
   },[cart])
-  useEffect(() =>{
-    setQuant(quantity)
 
 
-  },[quantity])
 
   return(
     <Router>
       <div>
-        <Nav length={quantity} />
+        <Nav quantity={quantity} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About  />} />
-          <Route path="/cart" element={<Cart up={incrementValue} down={decrementValue} total={total} items={cart} />}/> 
+          <Route path="/cart" element={<Cart items={cart} total={totalPrice} down={decrementItem} up={incrementItem} />}/> 
           <Route path="/shop" element={<Shop click={changeCart}  />} /> 
-          <Route path="/shop/:id" element={<ProductDetail />} />
+          <Route path="/shop/:id" element={<ProductDetail submit={addAmount} />} />
         </Routes>
       </div>
     </Router>

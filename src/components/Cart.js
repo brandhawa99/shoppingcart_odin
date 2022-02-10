@@ -1,32 +1,32 @@
 
 
-import React, { useEffect } from 'react' 
+import React from 'react' 
 import '../styles/style.css'
+import uniqid from 'uniqid'
 
-const Cart = props =>{    
+const Cart = props =>{  
 
-    useEffect(() =>{
-        
 
-    },[props.items])
     return(
-        <div className='container'>
-            <h1>Your Cart</h1>
+        <div key={uniqid()} className='container'>
+            <h1 key={uniqid()} >Your Cart</h1>
             {props.items.length <1 && (
 
-                    <div>Cart is empty...</div>
+                    <div key={uniqid()}>Cart is empty...</div>
             )}
 
 
             {props.items.length > 0 && 
                 (
-                    <div className='cart_container'>
+                    <div key={uniqid()} className='cart_container'>
+
                         {props.items.map(item =>(
-                            <div className='cart_item' key={item.id}> 
+
+                            <div className='cart_item' key={uniqid()}> 
                                 <div className='cart_text'> 
                                     <h3>{item.title}</h3>
-                                    <div>{item.price} </div>
                                 </div>
+                                    <div>${item.price} </div>
                                 <img src={item.image} alt={item.name}></img>
                                 
                                 <div className='buttons_container'> 
@@ -38,9 +38,10 @@ const Cart = props =>{
                             </div>
                             
                         ))
+
                         }
-                        <div className='cart_item'>
-                            <h1>Total ${props.total}</h1>
+                        <div key={uniqid()} className='cart_item'>
+                            <h1 key={uniqid()}>Total ${props.total}</h1>
                         </div>
                     </div>
                 )
