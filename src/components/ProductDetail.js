@@ -28,13 +28,6 @@ const ProductDetail = (props)  =>{
 
     },[]);
 
-    const getCount = (e) =>{
-        e.preventDefault();
-        return {
-        count:  e.target.value,
-        id : item.id
-    };
-    }
 
 
     return(
