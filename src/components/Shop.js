@@ -45,7 +45,7 @@ const Shop = props  =>{
                             <div key={uniqid()} className='title'>{item.title} </div>
                             <div key={uniqid()} className='price'>${item.price} </div>
                     </Link>
-                            <button name={item.id} onClick={props.click} className='addCart'>Add to Card</button>
+                            <button name={item.id} onClick={props.click} className='addCart'>Add to Cart</button>
 
                         </div>
                 )
