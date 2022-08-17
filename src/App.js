@@ -125,7 +125,7 @@ function App() {
       <div>
         <Nav quantity={quantity} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/shoppingcart_odin" element={<Home />} />
           <Route path="/about" element={<About  />} />
           <Route path="/cart" element={<Cart items={cart} total={totalPrice} down={decrementItem} up={incrementItem} />}/> 
           <Route path="/shop" element={<Shop click={changeCart}  />} /> 
