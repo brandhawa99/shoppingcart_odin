@@ -19,10 +19,10 @@ const Nav = props =>{
                 <h3 className='storeName'>Baltej's Store</h3>
             </Link>
             <ul className='nav-links'>
-                <Link style={navStyle} to='/about'>
-                    <li>About</li>
+                <Link style={navStyle} to='/about' className='navStyles'>
+                    About
                 </Link>
-                <Link style={navStyle} to='/shop'>
+                <Link style={navStyle} to='/shop' className='navStyles'>
                     <li>Shop</li>
                 </Link>
                 <Link style={navStyle} to='/cart'>
