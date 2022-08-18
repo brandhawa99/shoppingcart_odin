@@ -7,14 +7,6 @@ import {Link} from 'react-router-dom'
 
 const Cart = props =>{  
 
-    const refresh = (e) =>{
-        e.preventDefault();
-        window.location.reload()
-
-    }
-
-
-
     return(
         <div key={uniqid()} className='container'>
             <h1 key={uniqid()} >Your Cart</h1>
@@ -52,7 +44,7 @@ const Cart = props =>{
 
                         }
                         <div key={uniqid()} className='cart_item'>
-                            <h1 key={uniqid()}>Total ${props.total}</h1>
+                            <h1 key={uniqid()}>Total ${(Math.round(props.total*100)/100)}</h1>
                                     <Link style={{textDecoration:"none"}} className='checkoutButton' to='/' reloadDocument="true">
                                             Check Out
                                     </Link>

@@ -107,12 +107,12 @@ function App() {
   useEffect(()=>{
   
     let total = cart.reduce((total,item)=>{
-      return total + item.quantity;
+      return total + (Math.round((item.quantity)*100)/100)
     },0)
     setQuantity(total);
 
     let price = cart.reduce((total,item)=>{
-      return total + (item.quantity *item.price)
+      return total + (Math.round((item.quantity *item.price)*100)/100)
     },0)
     setTotalPrice(price);
 
