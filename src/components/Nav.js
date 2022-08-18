@@ -16,7 +16,7 @@ const Nav = props =>{
     return(
         <nav className='sticky'>
             <Link style={h1Style} to='/'>
-                <h3>Baltej's Store</h3>
+                <h3 className='storeName'>Baltej's Store</h3>
             </Link>
             <ul className='nav-links'>
                 <Link style={navStyle} to='/about'>
