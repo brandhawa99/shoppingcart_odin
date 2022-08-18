@@ -6,8 +6,8 @@ import About from './components/About'
 import Shop from './components/Shop'
 import ProductDetail from './components/ProductDetail'
 import Cart from './components/Cart'
-import {BrowserRouter as Router,Route, Routes} from 'react-router-dom'
-
+import {Route, Routes} from 'react-router-dom'
+import Footer from './components/Footer/Footer.js'
 
 function App() {
   /**
@@ -121,18 +121,19 @@ function App() {
 
 
   return(
-    <Router>
-      <div>
-        <Nav quantity={quantity} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About  />} />
-          <Route path="/cart" element={<Cart items={cart} total={totalPrice} down={decrementItem} up={incrementItem} />}/> 
-          <Route path="/shop" element={<Shop click={changeCart}  />} /> 
-          <Route path="/shop/:id" element={<ProductDetail submit={addAmount} />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <Nav quantity={quantity} />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About  />} />
+        <Route path="/cart" element={<Cart items={cart} total={totalPrice} down={decrementItem} up={incrementItem} />}/> 
+        <Route path="/shop" element={<Shop click={changeCart}  />} /> 
+        <Route path="/shop/:id" element={<ProductDetail submit={addAmount} />} />
+      </Routes>
+
+      <Footer />
+    </>
   )
 }
 
@@ -140,6 +141,7 @@ export default App;
 
 const Home = () =>(
   <div className='container'>
+    <Nav/>
     <h1>Home</h1>
     <div className='rtext'>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
