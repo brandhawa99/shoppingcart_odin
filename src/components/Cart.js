@@ -7,14 +7,6 @@ import {Link} from 'react-router-dom'
 
 const Cart = props =>{  
 
-    const h1Style = {
-        fontSize: '2em',
-        color:'black',
-        textDecoration: "none",
-        border:'black 1px solid',
-        padding: '1rem'
-    }
-
     const refresh = (e) =>{
         e.preventDefault();
         window.location.reload()
@@ -58,11 +50,11 @@ const Cart = props =>{
                         }
                         <div key={uniqid()} className='cart_item'>
                             <h1 key={uniqid()}>Total ${props.total}</h1>
-                                <button onClick={refresh}>
-                                    <Link to='/'>
-                                    Check Out
+                                    <Link style={{textDecoration:"none"}} to='/'>
+                                        <span className='checkoutButton' onClick={refresh}>
+                                            Check Out
+                                        </span>
                                     </Link>
-                                    </button>
                         </div>
                     </div>
                 )
