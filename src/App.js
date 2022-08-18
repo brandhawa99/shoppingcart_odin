@@ -130,6 +130,7 @@ function App() {
         <Route path="/cart" element={<Cart items={cart} total={totalPrice} down={decrementItem} up={incrementItem} />}/> 
         <Route path="/shop" element={<Shop click={changeCart}  />} /> 
         <Route path="/shop/:id" element={<ProductDetail submit={addAmount} />} />
+        <Route path="*" element={<h1>NO PAGE FOUND</h1>}/>
       </Routes>
 
       <Footer />
