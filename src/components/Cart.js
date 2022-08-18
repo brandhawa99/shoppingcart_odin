@@ -20,7 +20,10 @@ const Cart = props =>{
             <h1 key={uniqid()} >Your Cart</h1>
             {props.items.length <1 && (
 
-                    <div key={uniqid()}>Cart is empty...</div>
+                    <div style={{display:"flex", flexDirection:"column", gap:"20px"}} key={uniqid()}>
+                        <div>Cart is empty...</div>
+                        <Link to="/shop" style={{textDecoration:"none"}} className='checkoutButton'>Go back to store</Link>
+                    </div>
             )}
 
 
