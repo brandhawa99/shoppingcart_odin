@@ -23,8 +23,6 @@ const Shop = props  =>{
             })
         })
         setItems(mapped);
-
-
     }
 
     useEffect(()=>{
@@ -34,13 +32,13 @@ const Shop = props  =>{
 
     return(
         <div className='container'>
-            <h1>Shop Page</h1>
+            <h1>Checkout Our Aamazing Catalog</h1>
             <div className='cards'>
 
             {items.map(item =>{
                 return(
                     <div key={item.id} className='card'> 
-                    <Link key={uniqid()} to={`/shop/${item.id}`} >
+                    <Link className='linkstyles' key={uniqid()} to={`/shop/${item.id}`} >
                             <img key={uniqid()} className='cardImage' src={item.image} alt={item.title} />
                             <div key={uniqid()} className='title'>{item.title} </div>
                             <div key={uniqid()} className='price'>${item.price} </div>
