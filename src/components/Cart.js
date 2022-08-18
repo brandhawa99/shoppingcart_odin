@@ -50,10 +50,8 @@ const Cart = props =>{
                         }
                         <div key={uniqid()} className='cart_item'>
                             <h1 key={uniqid()}>Total ${props.total}</h1>
-                                    <Link style={{textDecoration:"none"}} to='/'>
-                                        <span className='checkoutButton' onClick={refresh}>
+                                    <Link style={{textDecoration:"none"}} className='checkoutButton' to='/' reloadDocument="true">
                                             Check Out
-                                        </span>
                                     </Link>
                         </div>
                     </div>
