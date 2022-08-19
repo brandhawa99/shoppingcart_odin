@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Shopping Cart App
+[Live App](https://shopping-cart-app-brandhawa.netlify.app/)
+![image](https://user-images.githubusercontent.com/35308786/185670287-ad051d88-aad5-46bf-91e3-f0b106328ed3.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Description
+In this project I connected my front-end to [This API](https://fakestoreapi.com). I created a generic home and about page and then
+I have a store page which fetches product data (price, image , descriptions) from the api. When you click on the actual prdocut it gives you a more detailed view of the product with the ability to add mulitple products to your cart. 
+You can add products to your cart and it updates the count, then when you access the cart you can see everything that you added the total of your cart. 
+Once you click checkout it reloads you to the homepage and makes it as if you never visited the site before. 
 
-In the project directory, you can run:
+##### Technologies
+I used React  becuase it is a very popular front-end javascript library, and react-router-dom becuase its the best way to implement mulitple pages.
+I used the Fetch API becasue its very well documented and very simple to use and interact with apis. 
 
-### `npm start`
+##### Challenges
+One of the more difficult chanllenges with this project was figuring out state mangement and how to organize the project so that the cart updated when products were added and making the cart update when multiples of the same products were added. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Goals
+- [x] Learn how to connect a React app to a public api 
+- [x] Learn how to use React-Router-Dom for page navigation 
+- [x] State Management
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to run locally 
+1. Clone the project and save it in some directory
+2. Run `npm install` to install all of the neccessary packages
+3. Run `npm run start` and it should start working just fine
